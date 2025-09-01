@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify, abort
+from flask import Blueprint, request, jsonify, abort, render_template
 from flask_login import login_required, current_user
 from sqlalchemy import or_
 from models import db, Event
@@ -81,6 +81,19 @@ def delete_event(event_id):
     db.session.delete(ev)
     db.session.commit()
     return jsonify({"ok": True, "message": "Event deleted."}), 200
+
+@events_bp.get("/<int:event_id>/edit")
+@login_required
+def edit_event_page(event_id):
+    ev = db.session.get(Event, event_id)
+    if not ev:
+        abort(404, description="Event not found")
+    if ev.created_by != current_user.id:
+        abort(403, description="You can only edit your own events")
+
+    # This will render templates/edit_event.html
+    return render_template("edit_event.html", ev=ev)
+
 
 def serialize_event(e: Event):
     return {
