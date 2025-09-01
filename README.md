@@ -43,7 +43,3 @@ python app.py
 - Frontend: server-rendered pages + Bootstrap 5
 - Basic tests with pytest
 
-## Notes
-- Uses session cookie for auth (spec allows session or JWT).
-- Input validation on server; HTML constraints on forms.
-- You can switch DB by editing `DATABASE_URL` in `.env`.
