@@ -2,7 +2,31 @@
 
 **Stack:** Flask (Python), SQLite, SQLAlchemy, Flask-Login, Bootstrap 5
 
-## Quick Start
+## execution steps
+1. Create Virtual Environment (only once per project)
+python -m venv venv
+This creates a venv folder where all your project’s packages will be stored.
+(You do this only once unless you delete the folder.)
+
+🔹 2. Activate Virtual Environment (every time you start working)
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
+.\venv\Scripts\Activate.ps1
+
+
+This tells VS Code/terminal to use the Python interpreter inside your project’s venv.
+
+You must activate the venv each time you open a new terminal/session.
+
+🔹 3. Install Required Packages (only once, unless new ones are needed)
+pip install flask
+pip install -r requirements.txt
+
+
+Once installed inside your venv, they remain there until you delete venv.
+No need to reinstall every time.
+
+🔹 4. Run Your Project
+python app.py
 
 
 ## Features
