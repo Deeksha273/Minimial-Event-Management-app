@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-8 col-lg-7">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h3 class="mb-3">Edit Event</h3>
+        <form id="eventEditForm" data-id="{{ ev.id }}">
+          <div class="mb-3">
+            <label class="form-label">Title</label>
+            <input class="form-control" name="title" minlength="5" maxlength="100" required value="{{ ev.title }}">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Description</label>
+            <textarea class="form-control" name="description" maxlength="2000" rows="4">{{ ev.description }}</textarea>
+          </div>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label">City</label>
+              <input class="form-control" name="city" required value="{{ ev.city }}">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Start Time (ISO)</label>
+              <input class="form-control" name="start_time" required value="{{ ev.start_time.isoformat(timespec='seconds') }}">
+            </div>
+          </div>
+          <div class="mb-3 mt-3">
+            <label class="form-label">Organizer</label>
+            <input class="form-control" name="organizer_name" required value="{{ ev.organizer_name }}">
+          </div>
+          <button class="btn btn-primary" type="submit">Update</button>
+          <a class="btn btn-secondary" href="/">Cancel</a>
+          <button class="btn btn-outline-danger float-end" id="deleteBtn" data-id="{{ ev.id }}" type="button">Delete</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

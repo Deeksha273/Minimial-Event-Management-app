@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-8 col-lg-7">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center">
+          <h3 class="mb-0">{{ ev.title }}</h3>
+          <a class="btn btn-sm btn-outline-secondary owner-only" href="/events/{{ ev.id }}/edit" data-owner="{{ ev.created_by }}">Edit</a>
+        </div>
+        <div class="small text-muted mb-2">
+          {{ ev.city }} • {{ ev.start_time.strftime('%Y-%m-%d %H:%M') }} • Organized by {{ ev.organizer_name }}
+        </div>
+        <p>{{ ev.description }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

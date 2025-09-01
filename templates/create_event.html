@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-8 col-lg-7">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h3 class="mb-3">Create Event</h3>
+        <form id="eventForm">
+          <div class="mb-3">
+            <label class="form-label">Title</label>
+            <input class="form-control" name="title" minlength="5" maxlength="100" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Description</label>
+            <textarea class="form-control" name="description" maxlength="2000" rows="4"></textarea>
+          </div>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label">City</label>
+              <input class="form-control" name="city" required>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Start Time (ISO)</label>
+              <input class="form-control" name="start_time" placeholder="2025-08-27T18:30:00" required>
+            </div>
+          </div>
+          <div class="mb-3 mt-3">
+            <label class="form-label">Organizer</label>
+            <input class="form-control" name="organizer_name" required>
+          </div>
+          <button class="btn btn-primary" type="submit">Save</button>
+          <a class="btn btn-secondary" href="/">Cancel</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
